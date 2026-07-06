@@ -1,6 +1,6 @@
 {
-  "run_id": "20260705_234710",
-  "generated_at": "2026-07-05T23:48:10",
+  "run_id": "20260706_003715",
+  "generated_at": "2026-07-06T00:37:24",
   "pickup_date": "2026-06-13",
   "return_date": "2026-07-06",
   "depot_address": "",
@@ -13,57 +13,35 @@
   "zones": [
     {
       "zone": 1,
-      "runner": "Team Brookshire",
-      "stop_count": 40,
+      "runner": "Ryan test",
+      "stop_count": 20,
       "stops": [
         {
           "stop_id": "1-01",
           "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Margaret Kilpatrick",
-          "address": "1239 Spruce St. Junction City, KS 66441",
+          "runner": "Ryan test",
+          "name": "Randy Heldstab",
+          "address": "1530 Oakridge Dr, Junction City, KS 66441",
           "number_of_flags": 1,
-          "notes": "right side of driveway 3ft X 3ft",
-          "lat": 39.0167818,
-          "lng": -96.8503223
+          "notes": "In their rock garden to the L of the driveway at the side of rock garden closest to the road.  Sticks up out of the ground.",
+          "lat": 39.0282544,
+          "lng": -96.8574459
         },
         {
           "stop_id": "1-02",
           "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Gayle Stallcup",
-          "address": "1522 Holly Ln, Junction City, KS 66441",
+          "runner": "Ryan test",
+          "name": "Jason Butler",
+          "address": "1520 Oakridge Dr, Junction City, KS 66441",
           "number_of_flags": 1,
-          "notes": "left of driveway. In far left of rock garden, 12 feet from curb.",
-          "lat": 39.0196538,
-          "lng": -96.8566815
+          "notes": "To the R of the new limestone mailbox 3X3 or 4X4 from the mailbox and Rd to the R of the driveway.",
+          "lat": 39.0288091,
+          "lng": -96.8573616
         },
         {
           "stop_id": "1-03",
           "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Chris Mathis",
-          "address": "1320 McFarland Rd, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "Centered in the raised semicircular flower bed a bit up this hill from McFarland.",
-          "lat": 39.0230573,
-          "lng": -96.8528731
-        },
-        {
-          "stop_id": "1-04",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Kendall Schoenrock",
-          "address": "1209 McFarland Rd, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "Driveway is U-shaped.  Base is located at the R entranceway (when looking at house), between the sidewalk and black fence 3X3 from sidewalk and driveway.",
-          "lat": 39.0243465,
-          "lng": -96.8510615
-        },
-        {
-          "stop_id": "1-05",
-          "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Guy Reynoldson",
           "address": "1208 W 8TH ST, Junction City, Kansas 66441",
           "number_of_flags": 1,
@@ -72,20 +50,42 @@
           "lng": -96.852167
         },
         {
+          "stop_id": "1-04",
+          "zone": 1,
+          "runner": "Ryan test",
+          "name": "Makena Krause",
+          "address": "1027 Northwest Ave, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "The flags base is on the left, front corner of the property. Close to the walkway.",
+          "lat": 39.0327908,
+          "lng": -96.8475776
+        },
+        {
+          "stop_id": "1-05",
+          "zone": 1,
+          "runner": "Ryan test",
+          "name": "Jade White",
+          "address": "1040 Grant Ave, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "There is a white building in front of a dark red building.  There is a mailbox in front of the white bldg close to the road.  When looking at the white bldg from the road, the base is to the L of the mailbox between the road and sidewalk.  Measurements are 18 ft from sidewalk, 4.5 ft from street, 7.5 ft from mailbox.",
+          "lat": 39.0420001,
+          "lng": -96.8283788
+        },
+        {
           "stop_id": "1-06",
           "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Nikki Wolf",
-          "address": "1302 W 9th St, Junction City, KS 66441",
+          "runner": "Ryan test",
+          "name": "Kalie Kipp",
+          "address": "209 S Eisenhower Dr, Junction City, KS 66441",
           "number_of_flags": 1,
-          "notes": "4X4 R of sidewalk, between sidewalk & road",
-          "lat": 39.0318201,
-          "lng": -96.8537328
+          "notes": "3 ft to the R of the telephone pole to the R of the driveway near the street.",
+          "lat": 39.0377678,
+          "lng": -96.8490845
         },
         {
           "stop_id": "1-07",
           "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Megan Woods",
           "address": "1020 Rucker Dr, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -96,29 +96,18 @@
         {
           "stop_id": "1-08",
           "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Jason Butler",
-          "address": "1520 Oakridge Dr, Junction City, KS 66441",
+          "runner": "Ryan test",
+          "name": "Nikki Wolf",
+          "address": "1302 W 9th St, Junction City, KS 66441",
           "number_of_flags": 1,
-          "notes": "To the R of the new limestone mailbox 3X3 or 4X4 from the mailbox and Rd to the R of the driveway.",
-          "lat": 39.0288091,
-          "lng": -96.8573616
+          "notes": "4X4 R of sidewalk, between sidewalk & road",
+          "lat": 39.0318201,
+          "lng": -96.8537328
         },
         {
           "stop_id": "1-09",
           "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Randy Heldstab",
-          "address": "1530 Oakridge Dr, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "In their rock garden to the L of the driveway at the side of rock garden closest to the road.  Sticks up out of the ground.",
-          "lat": 39.0282544,
-          "lng": -96.8574459
-        },
-        {
-          "stop_id": "1-10",
-          "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Nate Brookshire",
           "address": "702 Stoneridge Drive Junction City, KS 66441",
           "number_of_flags": 2,
@@ -127,218 +116,9 @@
           "lng": -96.862397
         },
         {
-          "stop_id": "1-11",
+          "stop_id": "1-10",
           "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Mark Powers",
-          "address": "1803 Oakridge Dr, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "3 ft from cul de sac road within the tear shaped grassy island",
-          "lat": 39.0237609,
-          "lng": -96.8624396
-        },
-        {
-          "stop_id": "1-12",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Yordanes Johannas",
-          "address": "120 Michaels Way Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "4 ft R of mailbox and 2 ft from street",
-          "lat": 39.0225611,
-          "lng": -96.8627539
-        },
-        {
-          "stop_id": "1-13",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Lindsey Perkins",
-          "address": "345 Caroline Ct, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "base installed 11 ft left of mailbox, 6 feet from road",
-          "lat": 39.0203885,
-          "lng": -96.8612215
-        },
-        {
-          "stop_id": "1-14",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Thelma Apodaca",
-          "address": "710 Kansa Ave, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "When looking at house, to the left of the mailbox, measurements are 4 ft from the road and 7.5 ft from the driveway.",
-          "lat": 39.017001,
-          "lng": -96.8642962
-        },
-        {
-          "stop_id": "1-15",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Kathy Tremont",
-          "address": "702 Wheatland Dr, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "Same as last year   south east corner of front yard",
-          "lat": 39.0161738,
-          "lng": -96.865933
-        },
-        {
-          "stop_id": "1-16",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Timothy Peterson",
-          "address": "1404 Malstead Way, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "3 feet from the left side of the mail box, 3 ft from curb",
-          "lat": 39.0100268,
-          "lng": -96.861126
-        },
-        {
-          "stop_id": "1-17",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Lisa Eickholt",
-          "address": "1414 Ecord Dr, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "4X4 between sidewalk and house. R of driveway.",
-          "lat": 39.0076931,
-          "lng": -96.8687909
-        },
-        {
-          "stop_id": "1-18",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Willie Thornberg",
-          "address": "1815 S Spring Valley Rd, Junction City, KS 66441",
-          "number_of_flags": 5,
-          "notes": "There are 5 flags in a row...3 at 1815 S Spring Valley Rd and 2 at 1727 S Spring Valley Rd. All 5 flags are placed between the street and the sidewalk and are evenly distributed 20 steps apart.",
-          "lat": 39.0053851,
-          "lng": -96.8722894
-        },
-        {
-          "stop_id": "1-19",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Matt Hoover",
-          "address": "604 N Spring Valley Rd, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "From driveway, betwn sidewalk & rd\u20264 ft R/N side of rd",
-          "lat": 39.0094807,
-          "lng": -96.8724412
-        },
-        {
-          "stop_id": "1-20",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Mr. Luek",
-          "address": "224 N Spring Valley Junction City. KS 66441",
-          "number_of_flags": 1,
-          "notes": "The flag base was placed at the 8th fence post from the Left/South between the sidewalk and the fence, 38 inches from sidewalk.",
-          "lat": 39.0094807,
-          "lng": -96.8724412
-        },
-        {
-          "stop_id": "1-21",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Mr. Lenk",
-          "address": "100 S Spring Valley Rd. Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "Flag base installed 4 ft from road and 58 inches from the white fiber optic white flat rectangle",
-          "lat": 39.0094807,
-          "lng": -96.8724412
-        },
-        {
-          "stop_id": "1-22",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Terry Heldstab",
-          "address": "208 S Spring Valley Rd. Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "Flagbase installed 4 ft from road, between road and sidewalk lined up with the double window towards the Left/South of the front of the house.  Not the double window on the porch.",
-          "lat": 39.0094807,
-          "lng": -96.8724412
-        },
-        {
-          "stop_id": "1-23",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Kristy Haden",
-          "address": "1317 S Spring Valley Rd, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "left of driveway 4x6",
-          "lat": 39.0096144,
-          "lng": -96.8723085
-        },
-        {
-          "stop_id": "1-24",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Clarence Morton",
-          "address": "725 Tallgrass Dr Junction City, Kansas 66441",
-          "number_of_flags": 1,
-          "notes": "6ft from left side of the Driveway 3 ft from Road on left side of the mail box",
-          "lat": 39.0163784,
-          "lng": -96.869065
-        },
-        {
-          "stop_id": "1-25",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Louis Plourde",
-          "address": "2109 Buffalo Court, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "Flag installed 4 ft behind mailbox, on front lawn.",
-          "lat": 39.0178093,
-          "lng": -96.8693004
-        },
-        {
-          "stop_id": "1-26",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Shiela Burdett",
-          "address": "517 Wheatland Dr. Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "right of mailbox, 5 feet from curb, even with back of flowerbed",
-          "lat": 39.0190421,
-          "lng": -96.8664094
-        },
-        {
-          "stop_id": "1-27",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Rachel Cutrone",
-          "address": "326 Navajo Drive Junction City, Kansas 66441",
-          "number_of_flags": 1,
-          "notes": "Pending Install Left of the driveway, about 4 ft, between sidewalk and street please",
-          "lat": 39.0210775,
-          "lng": -96.8698795
-        },
-        {
-          "stop_id": "1-28",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Jim Sands",
-          "address": "222 Navajo Dr, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "4X4 R side of driveway between road and sidewalk",
-          "lat": 39.0217283,
-          "lng": -96.8703078
-        },
-        {
-          "stop_id": "1-29",
-          "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Richard and Elizabeth Jensen",
-          "address": "2226 Ponca, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "left of mailbox. 10 feet from rock bed, 4 feet from curb",
-          "lat": 39.023338217402,
-          "lng": -96.870694518015
-        },
-        {
-          "stop_id": "1-30",
-          "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Aaron Landrith",
           "address": "506 N Spring Valley Rd. Junction City, KS 66441",
           "number_of_flags": 1,
@@ -347,9 +127,9 @@
           "lng": -96.8724347
         },
         {
-          "stop_id": "1-31",
+          "stop_id": "1-11",
           "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Gordon Crosby",
           "address": "406 N Spring Valley Rd, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -358,9 +138,9 @@
           "lng": -96.8724347
         },
         {
-          "stop_id": "1-32",
+          "stop_id": "1-12",
           "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Gennifer Booth",
           "address": "201 N. Spring Valley Rd. Junction City, Kansas 66441",
           "number_of_flags": 1,
@@ -369,42 +149,42 @@
           "lng": -96.8724347
         },
         {
-          "stop_id": "1-33",
+          "stop_id": "1-13",
           "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Terry Young",
-          "address": "517 South Spring Valley Rd. Junction City, KS 66441",
+          "runner": "Ryan test",
+          "name": "Richard and Elizabeth Jensen",
+          "address": "2226 Ponca, Junction City, KS 66441",
           "number_of_flags": 1,
-          "notes": "3 ft from curb, 2 ft from sidewalk, 6 ft from driveway to the R",
-          "lat": 39.0179019,
-          "lng": -96.8723247
+          "notes": "left of mailbox. 10 feet from rock bed, 4 feet from curb",
+          "lat": 39.023338217402,
+          "lng": -96.870694518015
         },
         {
-          "stop_id": "1-34",
+          "stop_id": "1-14",
           "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Rachel Pate",
-          "address": "2504 Liberty Hall Rd, Junction City, KS 66441",
+          "runner": "Ryan test",
+          "name": "Jim Sands",
+          "address": "222 Navajo Dr, Junction City, KS 66441",
           "number_of_flags": 1,
-          "notes": "On the left side of the driveway 15 ft from road 5 ft from driveway. 4 ft in front of house number",
-          "lat": 39.015657,
-          "lng": -96.875062
+          "notes": "4X4 R side of driveway between road and sidewalk",
+          "lat": 39.0217283,
+          "lng": -96.8703078
         },
         {
-          "stop_id": "1-35",
+          "stop_id": "1-15",
           "zone": 1,
-          "runner": "Team Brookshire",
-          "name": "Phyllis Gibson",
-          "address": "2722 Liberty Hall Rd, Junction City, KS 66441",
+          "runner": "Ryan test",
+          "name": "Rachel Cutrone",
+          "address": "326 Navajo Drive Junction City, Kansas 66441",
           "number_of_flags": 1,
-          "notes": "L of the driveway 3-4 ft from the driveway and from Liberty Hall Rd",
-          "lat": 39.0156514,
-          "lng": -96.8815783
+          "notes": "Pending Install Left of the driveway, about 4 ft, between sidewalk and street please",
+          "lat": 39.0210775,
+          "lng": -96.8698795
         },
         {
-          "stop_id": "1-36",
+          "stop_id": "1-16",
           "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Deanna Munson",
           "address": "4820 Liberty Hall Rd Junction City, KS 66441",
           "number_of_flags": 2,
@@ -413,9 +193,9 @@
           "lng": -96.9165624
         },
         {
-          "stop_id": "1-37",
+          "stop_id": "1-17",
           "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Angela Chauncey",
           "address": "2728 Samantha Dr, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -424,9 +204,9 @@
           "lng": -96.8796889
         },
         {
-          "stop_id": "1-38",
+          "stop_id": "1-18",
           "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Douglas Salle",
           "address": "3217 Rush Ct, Milford, KS 66514",
           "number_of_flags": 1,
@@ -435,9 +215,9 @@
           "lng": -96.8857669
         },
         {
-          "stop_id": "1-39",
+          "stop_id": "1-19",
           "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Krista Blaisdell",
           "address": "7323 Rockwood Drive, Milford, KS 66514",
           "number_of_flags": 1,
@@ -446,9 +226,9 @@
           "lng": -96.8892696
         },
         {
-          "stop_id": "1-40",
+          "stop_id": "1-20",
           "zone": 1,
-          "runner": "Team Brookshire",
+          "runner": "Ryan test",
           "name": "Jennifer (Jill) McKim",
           "address": "201 Lakeview St, Milford, KS 66514",
           "number_of_flags": 1,
@@ -460,90 +240,24 @@
     },
     {
       "zone": 2,
-      "runner": "Team Hufcut",
-      "stop_count": 39,
+      "runner": "Laura Test",
+      "stop_count": 20,
       "stops": [
         {
           "stop_id": "2-01",
           "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Terry Butler",
-          "address": "910 Countryside Court, Junction City, KS 66441",
+          "runner": "Laura Test",
+          "name": "Kendall Schoenrock",
+          "address": "1209 McFarland Rd, Junction City, KS 66441",
           "number_of_flags": 1,
-          "notes": "Base is 3 ft R of driveway between sidewalk and road.",
-          "lat": 39.016624,
-          "lng": -96.8458929
+          "notes": "Driveway is U-shaped.  Base is located at the R entranceway (when looking at house), between the sidewalk and black fence 3X3 from sidewalk and driveway.",
+          "lat": 39.0243465,
+          "lng": -96.8510615
         },
         {
           "stop_id": "2-02",
           "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Ronna Larson",
-          "address": "1310 Summit St, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "3 ft from road, 3 ft from driveway",
-          "lat": 39.010012,
-          "lng": -96.8451413
-        },
-        {
-          "stop_id": "2-03",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Chris Mathis",
-          "address": "806 Rockledge Dr, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "Need to remeasure however, it is ~3 ft from the circle drive road and somewhat centered with front of house",
-          "lat": 39.0063431,
-          "lng": -96.8417704
-        },
-        {
-          "stop_id": "2-04",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Patti Noriega",
-          "address": "502 S Madison St, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "left of sidewalk 4x4",
-          "lat": 39.0187219,
-          "lng": -96.8353269
-        },
-        {
-          "stop_id": "2-05",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Patti Noriega",
-          "address": "407 W Pine St, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "left of sidewalk 4x4",
-          "lat": 39.0187701,
-          "lng": -96.8354813
-        },
-        {
-          "stop_id": "2-06",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Justin Hoover",
-          "address": "416 W Spruce St, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "46 inches from the sidewalk that is to the L of the raised flower bed (in front of main entranceway of Spruce Suites) and 4 ft from sidewalk parallel to the road.",
-          "lat": 39.0199643,
-          "lng": -96.8356545
-        },
-        {
-          "stop_id": "2-07",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Sally Edwards",
-          "address": "439 W 1st St, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "corner of 1st & Jackson 3x3",
-          "lat": 39.0229247,
-          "lng": -96.8360576
-        },
-        {
-          "stop_id": "2-08",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Diana Dowling",
           "address": "521 S Garfield St, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -552,9 +266,9 @@
           "lng": -96.8449715
         },
         {
-          "stop_id": "2-09",
+          "stop_id": "2-03",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Ashley King (Car Wash)",
           "address": "1032 W 5th St, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -563,9 +277,9 @@
           "lng": -96.848597
         },
         {
-          "stop_id": "2-10",
+          "stop_id": "2-04",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Kendall Schoenrock",
           "address": "901 W 6th St, Junction City, KS 66441",
           "number_of_flags": 2,
@@ -574,9 +288,9 @@
           "lng": -96.8452456
         },
         {
-          "stop_id": "2-11",
+          "stop_id": "2-05",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Bryan Bartlett",
           "address": "839 W 6th Street Junction City, Kansas 66441",
           "number_of_flags": 1,
@@ -585,64 +299,9 @@
           "lng": -96.8437773
         },
         {
-          "stop_id": "2-12",
+          "stop_id": "2-06",
           "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Makena Krause",
-          "address": "1027 Northwest Ave, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "The flags base is on the left, front corner of the property. Close to the walkway.",
-          "lat": 39.0327908,
-          "lng": -96.8475776
-        },
-        {
-          "stop_id": "2-13",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Kalie Kipp",
-          "address": "209 S Eisenhower Dr, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "3 ft to the R of the telephone pole to the R of the driveway near the street.",
-          "lat": 39.0377678,
-          "lng": -96.8490845
-        },
-        {
-          "stop_id": "2-14",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Jade White",
-          "address": "1040 Grant Ave, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "There is a white building in front of a dark red building.  There is a mailbox in front of the white bldg close to the road.  When looking at the white bldg from the road, the base is to the L of the mailbox between the road and sidewalk.  Measurements are 18 ft from sidewalk, 4.5 ft from street, 7.5 ft from mailbox.",
-          "lat": 39.0420001,
-          "lng": -96.8283788
-        },
-        {
-          "stop_id": "2-15",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Gary Houser",
-          "address": "203 E 10th Street Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "Instead of installing the flagbase on Franklin St near the intersection of 10th and Franklin, Gary preferred to have it on Franklin Street, between the sidewalk and the street, near the S or right side of the building. Measurements:",
-          "lat": 39.0321635,
-          "lng": -96.8273363
-        },
-        {
-          "stop_id": "2-16",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Jeremiah Johnson",
-          "address": "436 west 9th street, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "Insalled between road in house, sticking out of the ground.",
-          "lat": 39.0314819,
-          "lng": -96.8360296
-        },
-        {
-          "stop_id": "2-17",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Kristina Castillo",
           "address": "709 W 9th St, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -651,9 +310,9 @@
           "lng": -96.8413058
         },
         {
-          "stop_id": "2-18",
+          "stop_id": "2-07",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Dillon's 6th Street",
           "address": "618 W 6th St, Junction City, KS 66441",
           "number_of_flags": 3,
@@ -662,9 +321,9 @@
           "lng": -96.8400948
         },
         {
-          "stop_id": "2-19",
+          "stop_id": "2-08",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Sherwin Williams",
           "address": "609 W 6th Street Junction City, KS 66441",
           "number_of_flags": 1,
@@ -673,31 +332,9 @@
           "lng": -96.8393811
         },
         {
-          "stop_id": "2-20",
+          "stop_id": "2-09",
           "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "KS State Bank",
-          "address": "539 W 6th St, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "20 ft 6 inches from the driveway entering the bank from 6th street; 20 inches from the rd.",
-          "lat": 39.0281626,
-          "lng": -96.8379623
-        },
-        {
-          "stop_id": "2-21",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Ashley King  (apt complex)",
-          "address": "538 W 5th St, Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "right side of driveway 3ft X 3ft (apartment complex)",
-          "lat": 39.0273008,
-          "lng": -96.8379591
-        },
-        {
-          "stop_id": "2-22",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Ashley King (rental house)",
           "address": "511 W 4th St, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -706,9 +343,42 @@
           "lng": -96.8375021
         },
         {
-          "stop_id": "2-23",
+          "stop_id": "2-10",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
+          "name": "Ashley King  (apt complex)",
+          "address": "538 W 5th St, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "right side of driveway 3ft X 3ft (apartment complex)",
+          "lat": 39.0273008,
+          "lng": -96.8379591
+        },
+        {
+          "stop_id": "2-11",
+          "zone": 2,
+          "runner": "Laura Test",
+          "name": "KS State Bank",
+          "address": "539 W 6th St, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "20 ft 6 inches from the driveway entering the bank from 6th street; 20 inches from the rd.",
+          "lat": 39.0281626,
+          "lng": -96.8379623
+        },
+        {
+          "stop_id": "2-12",
+          "zone": 2,
+          "runner": "Laura Test",
+          "name": "Jeremiah Johnson",
+          "address": "436 west 9th street, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "Insalled between road in house, sticking out of the ground.",
+          "lat": 39.0314819,
+          "lng": -96.8360296
+        },
+        {
+          "stop_id": "2-13",
+          "zone": 2,
+          "runner": "Laura Test",
           "name": "Rik Vande Riet",
           "address": "404 W. 6th St., Junction City, KS 66441",
           "number_of_flags": 2,
@@ -717,9 +387,9 @@
           "lng": -96.8355777
         },
         {
-          "stop_id": "2-24",
+          "stop_id": "2-14",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Jamie Walsh",
           "address": "404 W Elm St Junction City, Kansas 66441",
           "number_of_flags": 1,
@@ -728,9 +398,9 @@
           "lng": -96.8355777
         },
         {
-          "stop_id": "2-25",
+          "stop_id": "2-15",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Crites Real Estate",
           "address": "339 W 6th St, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -739,9 +409,9 @@
           "lng": -96.834125
         },
         {
-          "stop_id": "2-26",
+          "stop_id": "2-16",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Dena Boller",
           "address": "328 W 5th St, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -750,20 +420,9 @@
           "lng": -96.8339706
         },
         {
-          "stop_id": "2-27",
+          "stop_id": "2-17",
           "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "Sheila Markley",
-          "address": "240 W 5th Street Junction City, KS 66441",
-          "number_of_flags": 1,
-          "notes": "Between the sidewalk and the street, 3 ft L/W of mailbox and also 3 ft N of cement pad",
-          "lat": 39.0272852,
-          "lng": -96.8322485
-        },
-        {
-          "stop_id": "2-28",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Mickey Dean Fornara (MAC/EDC)",
           "address": "222 W 6th St, Junction City, KS 66441",
           "number_of_flags": 2,
@@ -772,9 +431,9 @@
           "lng": -96.831955
         },
         {
-          "stop_id": "2-29",
+          "stop_id": "2-18",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
           "name": "Geary County CVB",
           "address": "222 W 6th Street Junction City, KS 66441",
           "number_of_flags": 1,
@@ -783,9 +442,159 @@
           "lng": -96.831955
         },
         {
-          "stop_id": "2-30",
+          "stop_id": "2-19",
           "zone": 2,
-          "runner": "Team Hufcut",
+          "runner": "Laura Test",
+          "name": "Gary Houser",
+          "address": "203 E 10th Street Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "Instead of installing the flagbase on Franklin St near the intersection of 10th and Franklin, Gary preferred to have it on Franklin Street, between the sidewalk and the street, near the S or right side of the building. Measurements:",
+          "lat": 39.0321635,
+          "lng": -96.8273363
+        },
+        {
+          "stop_id": "2-20",
+          "zone": 2,
+          "runner": "Laura Test",
+          "name": "John Abel",
+          "address": "1232 Pershing Dr, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "Flag base is 4ft to the right of mail box 24 inches from curb",
+          "lat": 40.059121,
+          "lng": -82.9852131
+        }
+      ]
+    },
+    {
+      "zone": 3,
+      "runner": "Destiny Test",
+      "stop_count": 20,
+      "stops": [
+        {
+          "stop_id": "3-01",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Margaret Kilpatrick",
+          "address": "1239 Spruce St. Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "right side of driveway 3ft X 3ft",
+          "lat": 39.0167818,
+          "lng": -96.8503223
+        },
+        {
+          "stop_id": "3-02",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Timothy Peterson",
+          "address": "1404 Malstead Way, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "3 feet from the left side of the mail box, 3 ft from curb",
+          "lat": 39.0100268,
+          "lng": -96.861126
+        },
+        {
+          "stop_id": "3-03",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Willie Thornberg",
+          "address": "1815 S Spring Valley Rd, Junction City, KS 66441",
+          "number_of_flags": 5,
+          "notes": "There are 5 flags in a row...3 at 1815 S Spring Valley Rd and 2 at 1727 S Spring Valley Rd. All 5 flags are placed between the street and the sidewalk and are evenly distributed 20 steps apart.",
+          "lat": 39.0053851,
+          "lng": -96.8722894
+        },
+        {
+          "stop_id": "3-04",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Chris Mathis",
+          "address": "806 Rockledge Dr, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "Need to remeasure however, it is ~3 ft from the circle drive road and somewhat centered with front of house",
+          "lat": 39.0063431,
+          "lng": -96.8417704
+        },
+        {
+          "stop_id": "3-05",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Ronna Larson",
+          "address": "1310 Summit St, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "3 ft from road, 3 ft from driveway",
+          "lat": 39.010012,
+          "lng": -96.8451413
+        },
+        {
+          "stop_id": "3-06",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Terry Butler",
+          "address": "910 Countryside Court, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "Base is 3 ft R of driveway between sidewalk and road.",
+          "lat": 39.016624,
+          "lng": -96.8458929
+        },
+        {
+          "stop_id": "3-07",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Patti Noriega",
+          "address": "407 W Pine St, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "left of sidewalk 4x4",
+          "lat": 39.0187701,
+          "lng": -96.8354813
+        },
+        {
+          "stop_id": "3-08",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Patti Noriega",
+          "address": "502 S Madison St, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "left of sidewalk 4x4",
+          "lat": 39.0187219,
+          "lng": -96.8353269
+        },
+        {
+          "stop_id": "3-09",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Justin Hoover",
+          "address": "416 W Spruce St, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "46 inches from the sidewalk that is to the L of the raised flower bed (in front of main entranceway of Spruce Suites) and 4 ft from sidewalk parallel to the road.",
+          "lat": 39.0199643,
+          "lng": -96.8356545
+        },
+        {
+          "stop_id": "3-10",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Sally Edwards",
+          "address": "439 W 1st St, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "corner of 1st & Jackson 3x3",
+          "lat": 39.0229247,
+          "lng": -96.8360576
+        },
+        {
+          "stop_id": "3-11",
+          "zone": 3,
+          "runner": "Destiny Test",
+          "name": "Sheila Markley",
+          "address": "240 W 5th Street Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "Between the sidewalk and the street, 3 ft L/W of mailbox and also 3 ft N of cement pad",
+          "lat": 39.0272852,
+          "lng": -96.8322485
+        },
+        {
+          "stop_id": "3-12",
+          "zone": 3,
+          "runner": "Destiny Test",
           "name": "Rik Vande Riet",
           "address": "828 W. 6th St., Junction City, KS 66441",
           "number_of_flags": 1,
@@ -794,9 +603,9 @@
           "lng": -96.8313978
         },
         {
-          "stop_id": "2-31",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "stop_id": "3-13",
+          "zone": 3,
+          "runner": "Destiny Test",
           "name": "Patty MAYCROFT",
           "address": "425 N. Washington St. Junction City, KS 66441",
           "number_of_flags": 1,
@@ -805,9 +614,9 @@
           "lng": -96.829376
         },
         {
-          "stop_id": "2-32",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "stop_id": "3-14",
+          "zone": 3,
+          "runner": "Destiny Test",
           "name": "Ashley King (apt complex)",
           "address": "121 E 4th St, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -816,9 +625,9 @@
           "lng": -96.8289964
         },
         {
-          "stop_id": "2-33",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "stop_id": "3-15",
+          "zone": 3,
+          "runner": "Destiny Test",
           "name": "Justin Hoover",
           "address": "101 N Washington St, Junction City, KS 66441",
           "number_of_flags": 2,
@@ -827,9 +636,9 @@
           "lng": -96.829362
         },
         {
-          "stop_id": "2-34",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "stop_id": "3-16",
+          "zone": 3,
+          "runner": "Destiny Test",
           "name": "Justin Hoover",
           "address": "104 S Washington St, Junction City, KS 66441",
           "number_of_flags": 2,
@@ -838,9 +647,9 @@
           "lng": -96.829572
         },
         {
-          "stop_id": "2-35",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "stop_id": "3-17",
+          "zone": 3,
+          "runner": "Destiny Test",
           "name": "Yordanes Johannas",
           "address": "119 S Washington St, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -849,9 +658,9 @@
           "lng": -96.829359
         },
         {
-          "stop_id": "2-36",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "stop_id": "3-18",
+          "zone": 3,
+          "runner": "Destiny Test",
           "name": "Calvin Conary",
           "address": "331 E Chestnut St, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -860,9 +669,9 @@
           "lng": -96.8251854
         },
         {
-          "stop_id": "2-37",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "stop_id": "3-19",
+          "zone": 3,
+          "runner": "Destiny Test",
           "name": "Renate White",
           "address": "221 Locust St, Junction City, KS 66441",
           "number_of_flags": 1,
@@ -871,26 +680,231 @@
           "lng": -96.799001847411
         },
         {
-          "stop_id": "2-38",
-          "zone": 2,
-          "runner": "Team Hufcut",
+          "stop_id": "3-20",
+          "zone": 3,
+          "runner": "Destiny Test",
           "name": "Nate Butler",
           "address": "1213 Linda Dr, Junction City, KS 66441",
           "number_of_flags": 1,
           "notes": "left of mailbox 3ft x 3ft from Curb - Needs paint",
           "lat": 31.2686921,
           "lng": -92.472256
+        }
+      ]
+    },
+    {
+      "zone": 4,
+      "runner": "Trae Test",
+      "stop_count": 19,
+      "stops": [
+        {
+          "stop_id": "4-01",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Gayle Stallcup",
+          "address": "1522 Holly Ln, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "left of driveway. In far left of rock garden, 12 feet from curb.",
+          "lat": 39.0196538,
+          "lng": -96.8566815
         },
         {
-          "stop_id": "2-39",
-          "zone": 2,
-          "runner": "Team Hufcut",
-          "name": "John Abel",
-          "address": "1232 Pershing Dr, Junction City, KS 66441",
+          "stop_id": "4-02",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Chris Mathis",
+          "address": "1320 McFarland Rd, Junction City, KS 66441",
           "number_of_flags": 1,
-          "notes": "Flag base is 4ft to the right of mail box 24 inches from curb",
-          "lat": 40.059121,
-          "lng": -82.9852131
+          "notes": "Centered in the raised semicircular flower bed a bit up this hill from McFarland.",
+          "lat": 39.0230573,
+          "lng": -96.8528731
+        },
+        {
+          "stop_id": "4-03",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Mark Powers",
+          "address": "1803 Oakridge Dr, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "3 ft from cul de sac road within the tear shaped grassy island",
+          "lat": 39.0237609,
+          "lng": -96.8624396
+        },
+        {
+          "stop_id": "4-04",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Yordanes Johannas",
+          "address": "120 Michaels Way Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "4 ft R of mailbox and 2 ft from street",
+          "lat": 39.0225611,
+          "lng": -96.8627539
+        },
+        {
+          "stop_id": "4-05",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Lindsey Perkins",
+          "address": "345 Caroline Ct, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "base installed 11 ft left of mailbox, 6 feet from road",
+          "lat": 39.0203885,
+          "lng": -96.8612215
+        },
+        {
+          "stop_id": "4-06",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Shiela Burdett",
+          "address": "517 Wheatland Dr. Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "right of mailbox, 5 feet from curb, even with back of flowerbed",
+          "lat": 39.0190421,
+          "lng": -96.8664094
+        },
+        {
+          "stop_id": "4-07",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Thelma Apodaca",
+          "address": "710 Kansa Ave, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "When looking at house, to the left of the mailbox, measurements are 4 ft from the road and 7.5 ft from the driveway.",
+          "lat": 39.017001,
+          "lng": -96.8642962
+        },
+        {
+          "stop_id": "4-08",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Kathy Tremont",
+          "address": "702 Wheatland Dr, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "Same as last year   south east corner of front yard",
+          "lat": 39.0161738,
+          "lng": -96.865933
+        },
+        {
+          "stop_id": "4-09",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Clarence Morton",
+          "address": "725 Tallgrass Dr Junction City, Kansas 66441",
+          "number_of_flags": 1,
+          "notes": "6ft from left side of the Driveway 3 ft from Road on left side of the mail box",
+          "lat": 39.0163784,
+          "lng": -96.869065
+        },
+        {
+          "stop_id": "4-10",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Louis Plourde",
+          "address": "2109 Buffalo Court, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "Flag installed 4 ft behind mailbox, on front lawn.",
+          "lat": 39.0178093,
+          "lng": -96.8693004
+        },
+        {
+          "stop_id": "4-11",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Terry Young",
+          "address": "517 South Spring Valley Rd. Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "3 ft from curb, 2 ft from sidewalk, 6 ft from driveway to the R",
+          "lat": 39.0179019,
+          "lng": -96.8723247
+        },
+        {
+          "stop_id": "4-12",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Rachel Pate",
+          "address": "2504 Liberty Hall Rd, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "On the left side of the driveway 15 ft from road 5 ft from driveway. 4 ft in front of house number",
+          "lat": 39.015657,
+          "lng": -96.875062
+        },
+        {
+          "stop_id": "4-13",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Phyllis Gibson",
+          "address": "2722 Liberty Hall Rd, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "L of the driveway 3-4 ft from the driveway and from Liberty Hall Rd",
+          "lat": 39.0156514,
+          "lng": -96.8815783
+        },
+        {
+          "stop_id": "4-14",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Terry Heldstab",
+          "address": "208 S Spring Valley Rd. Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "Flagbase installed 4 ft from road, between road and sidewalk lined up with the double window towards the Left/South of the front of the house.  Not the double window on the porch.",
+          "lat": 39.0094807,
+          "lng": -96.8724412
+        },
+        {
+          "stop_id": "4-15",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Matt Hoover",
+          "address": "604 N Spring Valley Rd, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "From driveway, betwn sidewalk & rd\u20264 ft R/N side of rd",
+          "lat": 39.0094807,
+          "lng": -96.8724412
+        },
+        {
+          "stop_id": "4-16",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Mr. Luek",
+          "address": "224 N Spring Valley Junction City. KS 66441",
+          "number_of_flags": 1,
+          "notes": "The flag base was placed at the 8th fence post from the Left/South between the sidewalk and the fence, 38 inches from sidewalk.",
+          "lat": 39.0094807,
+          "lng": -96.8724412
+        },
+        {
+          "stop_id": "4-17",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Mr. Lenk",
+          "address": "100 S Spring Valley Rd. Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "Flag base installed 4 ft from road and 58 inches from the white fiber optic white flat rectangle",
+          "lat": 39.0094807,
+          "lng": -96.8724412
+        },
+        {
+          "stop_id": "4-18",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Kristy Haden",
+          "address": "1317 S Spring Valley Rd, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "left of driveway 4x6",
+          "lat": 39.0096144,
+          "lng": -96.8723085
+        },
+        {
+          "stop_id": "4-19",
+          "zone": 4,
+          "runner": "Trae Test",
+          "name": "Lisa Eickholt",
+          "address": "1414 Ecord Dr, Junction City, KS 66441",
+          "number_of_flags": 1,
+          "notes": "4X4 between sidewalk and house. R of driveway.",
+          "lat": 39.0076931,
+          "lng": -96.8687909
         }
       ]
     }
