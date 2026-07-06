@@ -1,0 +1,10 @@
+{
+  "admin_password": "gearyflags",
+  "runner_secret": "change-this-runner-secret",
+  "public_base_url": "",
+  "sms_provider": "",
+  "sms_to_number": "",
+  "twilio_account_sid": "",
+  "twilio_auth_token": "",
+  "twilio_from_number": ""
+}

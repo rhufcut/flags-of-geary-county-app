@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f4c5c">
+  <title>Flags of Geary County</title>
+  <link rel="manifest" href="/static/manifest.json?v=20260418c">
+  <link rel="stylesheet" href="/static/styles-v2.css?v=20260418c">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">Mobile Route App</p>
+      <h1>Flags of Geary County</h1>
+      <p class="subhead">Tap a segment to open its Google Maps route.</p>
+      <div class="hero-meta">
+        <div class="meta-chip">
+          <span class="meta-label">Latest Run</span>
+          <strong id="generated-at">Loading...</strong>
+        </div>
+        <div class="meta-chip">
+          <span class="meta-label">Segments</span>
+          <strong id="segment-count">-</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="toolbar">
+      <div class="zone-tabs" id="zone-tabs"></div>
+      <button class="ghost-button" id="refresh-button" type="button">Refresh</button>
+    </section>
+
+    <section class="runner-banner" id="runner-banner" hidden>
+      <span class="runner-banner-label">Assigned Runner</span>
+      <strong class="runner-banner-name" id="runner-banner-name"></strong>
+    </section>
+
+    <section class="status-panel" id="status-panel">Loading latest routes...</section>
+    <section class="segment-list" id="segment-list"></section>
+  </main>
+
+  <script src="/static/app-v2.js?v=20260418c" defer></script>
+</body>
+</html>

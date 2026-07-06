@@ -1,0 +1,9 @@
+{
+  "name": "Geary County Routes",
+  "short_name": "Routes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3efe6",
+  "theme_color": "#0f4c5c",
+  "description": "Mobile route launcher for Geary County flag routes."
+}
