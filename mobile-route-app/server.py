@@ -28,7 +28,7 @@ OUTPUTS_DIR = Path(os.environ.get("ROUTE_OUTPUTS_DIR", str(DATA_DIR / "outputs")
 STATUS_DB_PATH = DATA_DIR / "flag_status.sqlite3"
 HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = int(os.environ.get("PORT", "8042"))
-ASSET_VERSION = "20260705d"
+ASSET_VERSION = "20260707b"
 
 
 def route_output_dirs() -> list[Path]:
