@@ -96,10 +96,14 @@ function escapeHtml(value) {
 }
 
 function stopMapLink(stop) {
+  const address = String(stop.address || "").trim();
+  if (address) {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  }
   if (stop.lat && stop.lng) {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${stop.lat},${stop.lng}`)}`;
   }
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stop.address || "")}`;
+  return "https://www.google.com/maps";
 }
 
 function stopPreviewEmbedLink(stop) {
@@ -138,9 +142,6 @@ function notInstalledCount(zone) {
 function visibleStops(zone) {
   if (!zone) {
     return [];
-  }
-  if (state.currentPhase === "pickup") {
-    return (zone.stops || []).filter((stop) => stop.install_status === "installed");
   }
   return zone.stops || [];
 }
@@ -273,44 +274,32 @@ function renderSessionToggle() {
 
   heading.textContent = phaseLabelWithDate(state.currentPhase || "install");
   subhead.textContent = state.currentPhase === "pickup"
-    ? "Only flags that were actually emplaced appear here for pickup."
+    ? "Check each address after the flag has been picked up."
     : "Check each address after the flag has been emplaced.";
 
   if (isRunnerView) {
     panel.classList.add("is-runner-locked");
     panel.querySelector(".eyebrow").textContent = "Runner Session";
     const zone = activeZone();
-    if (state.currentPhase === "install") {
-      const viewToggle = document.createElement("button");
-      viewToggle.type = "button";
-      viewToggle.className = "ghost-button";
-      viewToggle.textContent = state.runnerShowAllStops ? "Show One Address" : "Show All Addresses";
-      viewToggle.addEventListener("click", () => {
-        state.runnerShowAllStops = !state.runnerShowAllStops;
-        renderStops();
-      });
-      container.appendChild(viewToggle);
+    const viewToggle = document.createElement("button");
+    viewToggle.type = "button";
+    viewToggle.className = "ghost-button";
+    viewToggle.textContent = state.runnerShowAllStops ? "Show One Address" : "Show All Addresses";
+    viewToggle.addEventListener("click", () => {
+      state.runnerShowAllStops = !state.runnerShowAllStops;
+      renderStops();
+    });
+    container.appendChild(viewToggle);
 
-      if (zone) {
-        const selectAllButton = document.createElement("button");
-        selectAllButton.type = "button";
-        selectAllButton.className = "ghost-button";
-        selectAllButton.textContent = "Select All Emplaced";
-        selectAllButton.addEventListener("click", () => {
-          selectAllEmplacedInZone(zone);
-        });
-        container.appendChild(selectAllButton);
-      }
-    }
-    if (state.currentPhase === "pickup" && zone) {
-      const markAlreadyEmplacedButton = document.createElement("button");
-      markAlreadyEmplacedButton.type = "button";
-      markAlreadyEmplacedButton.className = "ghost-button";
-      markAlreadyEmplacedButton.textContent = "Mark Whole Zone Already Emplaced";
-      markAlreadyEmplacedButton.addEventListener("click", () => {
+    if (zone) {
+      const markAllPlacedButton = document.createElement("button");
+      markAllPlacedButton.type = "button";
+      markAllPlacedButton.className = "ghost-button";
+      markAllPlacedButton.textContent = "Mark All Flags Placed";
+      markAllPlacedButton.addEventListener("click", () => {
         selectAllEmplacedInZone(zone);
       });
-      container.appendChild(markAlreadyEmplacedButton);
+      container.appendChild(markAllPlacedButton);
     }
     const returnButton = document.createElement("button");
     returnButton.type = "button";
@@ -949,7 +938,7 @@ function renderStops() {
   if (!stops.length) {
     setStatus(
       state.currentPhase === "pickup"
-        ? `${zone.title} has no emplaced flags ready for pickup yet.`
+        ? `${zone.title} has no stops in this route.`
         : `${zone.title} has no stops in this route.`,
       "warning",
     );
@@ -963,7 +952,7 @@ function renderStops() {
   }
 
   if (isRunnerView) {
-    if (state.runnerShowAllStops && state.currentPhase === "install") {
+    if (state.runnerShowAllStops) {
       for (const stop of stops) {
         container.appendChild(buildStopCard(zone, stop, false));
       }
