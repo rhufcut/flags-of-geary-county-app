@@ -13,10 +13,17 @@ from collections import defaultdict
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from threading import Lock
 from io import BytesIO
 from urllib.parse import parse_qs, quote, urlencode, urlparse
 
 import qrcode
+try:
+    import psycopg
+    from psycopg.rows import dict_row
+except ImportError:
+    psycopg = None
+    dict_row = None
 
 
 APP_DIR = Path(__file__).resolve().parent
@@ -26,9 +33,12 @@ DEFAULT_LOCAL_OUTPUTS_DIR = Path(r"C:\Users\rhufc\OneDrive\JCMS\Flags of Geary C
 DATA_DIR = Path(os.environ.get("ROUTE_APP_DATA_DIR", str(APP_DIR / "data"))).expanduser()
 OUTPUTS_DIR = Path(os.environ.get("ROUTE_OUTPUTS_DIR", str(DATA_DIR / "outputs"))).expanduser()
 STATUS_DB_PATH = DATA_DIR / "flag_status.sqlite3"
+DATABASE_URL = os.environ.get("DATABASE_URL", "").strip()
 HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = int(os.environ.get("PORT", "8042"))
-ASSET_VERSION = "20260707b"
+ASSET_VERSION = "20260905a"
+_STATUS_DB_INIT_LOCK = Lock()
+_INITIALIZED_STATUS_DBS: set[tuple[str, str]] = set()
 
 
 def route_output_dirs() -> list[Path]:
@@ -127,8 +137,80 @@ def valid_runner_token(runner: str, token: str) -> bool:
     return hmac.compare_digest(expected, token.strip())
 
 
+def status_store_backend() -> str:
+    return "postgres" if DATABASE_URL else "sqlite"
+
+
+def postgres_connection():
+    if psycopg is None:
+        raise RuntimeError("Postgres support requires psycopg. Add it to requirements.txt and redeploy.")
+    return psycopg.connect(DATABASE_URL, row_factory=dict_row, connect_timeout=15)
+
+
 def ensure_status_db() -> None:
+    storage_key = (DATABASE_URL, str(STATUS_DB_PATH))
+    with _STATUS_DB_INIT_LOCK:
+        if storage_key in _INITIALIZED_STATUS_DBS:
+            return
+        _initialize_status_db()
+        # Failed initialization leaves no marker, so the next call can retry.
+        _INITIALIZED_STATUS_DBS.add(storage_key)
+
+
+def _initialize_status_db() -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
+    if status_store_backend() == "postgres":
+        with postgres_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS stop_status (
+                        run_id TEXT NOT NULL,
+                        stop_id TEXT NOT NULL,
+                        install_status TEXT NOT NULL DEFAULT 'pending',
+                        install_at TEXT NOT NULL DEFAULT '',
+                        install_note TEXT NOT NULL DEFAULT '',
+                        install_note_at TEXT NOT NULL DEFAULT '',
+                        install_note_resolved INTEGER NOT NULL DEFAULT 0,
+                        install_note_resolved_at TEXT NOT NULL DEFAULT '',
+                        install_note_resolved_by TEXT NOT NULL DEFAULT '',
+                        install_by TEXT NOT NULL DEFAULT '',
+                        pickup_status TEXT NOT NULL DEFAULT 'pending',
+                        pickup_at TEXT NOT NULL DEFAULT '',
+                        pickup_note TEXT NOT NULL DEFAULT '',
+                        pickup_note_at TEXT NOT NULL DEFAULT '',
+                        pickup_note_resolved INTEGER NOT NULL DEFAULT 0,
+                        pickup_note_resolved_at TEXT NOT NULL DEFAULT '',
+                        pickup_note_resolved_by TEXT NOT NULL DEFAULT '',
+                        pickup_by TEXT NOT NULL DEFAULT '',
+                        PRIMARY KEY (run_id, stop_id)
+                    )
+                    """
+                )
+                cur.execute(
+                    """
+                    CREATE TABLE IF NOT EXISTS notification_log (
+                        event_key TEXT PRIMARY KEY,
+                        created_at TEXT NOT NULL DEFAULT ''
+                    )
+                    """
+                )
+                for column_sql in (
+                    "ADD COLUMN IF NOT EXISTS install_by TEXT NOT NULL DEFAULT ''",
+                    "ADD COLUMN IF NOT EXISTS pickup_by TEXT NOT NULL DEFAULT ''",
+                    "ADD COLUMN IF NOT EXISTS install_note_at TEXT NOT NULL DEFAULT ''",
+                    "ADD COLUMN IF NOT EXISTS pickup_note_at TEXT NOT NULL DEFAULT ''",
+                    "ADD COLUMN IF NOT EXISTS install_note_resolved INTEGER NOT NULL DEFAULT 0",
+                    "ADD COLUMN IF NOT EXISTS install_note_resolved_at TEXT NOT NULL DEFAULT ''",
+                    "ADD COLUMN IF NOT EXISTS install_note_resolved_by TEXT NOT NULL DEFAULT ''",
+                    "ADD COLUMN IF NOT EXISTS pickup_note_resolved INTEGER NOT NULL DEFAULT 0",
+                    "ADD COLUMN IF NOT EXISTS pickup_note_resolved_at TEXT NOT NULL DEFAULT ''",
+                    "ADD COLUMN IF NOT EXISTS pickup_note_resolved_by TEXT NOT NULL DEFAULT ''",
+                ):
+                    cur.execute(f"ALTER TABLE stop_status {column_sql}")
+            conn.commit()
+        return
+
     with sqlite3.connect(STATUS_DB_PATH) as conn:
         conn.execute(
             """
@@ -192,6 +274,15 @@ def ensure_status_db() -> None:
 
 def notification_event_sent(event_key: str) -> bool:
     ensure_status_db()
+    if status_store_backend() == "postgres":
+        with postgres_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    "SELECT 1 FROM notification_log WHERE event_key = %s",
+                    (event_key,),
+                )
+                row = cur.fetchone()
+        return row is not None
     with sqlite3.connect(STATUS_DB_PATH) as conn:
         row = conn.execute(
             "SELECT 1 FROM notification_log WHERE event_key = ?",
@@ -202,30 +293,51 @@ def notification_event_sent(event_key: str) -> bool:
 
 def record_notification_event(event_key: str) -> None:
     ensure_status_db()
+    created_at = datetime.now().isoformat(timespec="seconds")
+    if status_store_backend() == "postgres":
+        with postgres_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """
+                    INSERT INTO notification_log (event_key, created_at)
+                    VALUES (%s, %s)
+                    ON CONFLICT (event_key) DO NOTHING
+                    """,
+                    (event_key, created_at),
+                )
+            conn.commit()
+        return
     with sqlite3.connect(STATUS_DB_PATH) as conn:
         conn.execute(
             """
             INSERT OR IGNORE INTO notification_log (event_key, created_at)
             VALUES (?, ?)
             """,
-            (event_key, datetime.now().isoformat(timespec="seconds")),
+            (event_key, created_at),
         )
         conn.commit()
 
 
 def load_status_map(run_id: str) -> dict[str, dict]:
     ensure_status_db()
+    query = """
+        SELECT stop_id, install_status, install_at, install_note, install_note_at,
+               install_note_resolved, install_note_resolved_at, install_note_resolved_by, install_by,
+               pickup_status, pickup_at, pickup_note, pickup_note_at,
+               pickup_note_resolved, pickup_note_resolved_at, pickup_note_resolved_by, pickup_by
+        FROM stop_status
+        WHERE run_id = {placeholder}
+    """
+    if status_store_backend() == "postgres":
+        with postgres_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(query.format(placeholder="%s"), (run_id,))
+                rows = cur.fetchall()
+        return {row["stop_id"]: dict(row) for row in rows}
     with sqlite3.connect(STATUS_DB_PATH) as conn:
         conn.row_factory = sqlite3.Row
         rows = conn.execute(
-            """
-            SELECT stop_id, install_status, install_at, install_note, install_note_at,
-                   install_note_resolved, install_note_resolved_at, install_note_resolved_by, install_by,
-                   pickup_status, pickup_at, pickup_note, pickup_note_at,
-                   pickup_note_resolved, pickup_note_resolved_at, pickup_note_resolved_by, pickup_by
-            FROM stop_status
-            WHERE run_id = ?
-            """,
+            query.format(placeholder="?"),
             (run_id,),
         ).fetchall()
     return {row["stop_id"]: dict(row) for row in rows}
@@ -233,19 +345,42 @@ def load_status_map(run_id: str) -> dict[str, dict]:
 
 def save_stop_status(run_id: str, stop_id: str, phase: str, status: str, note: str, updated_by: str) -> None:
     ensure_status_db()
+    # Issue notes have their own endpoint. Checkbox updates must preserve them,
+    # including their timestamps and resolution history.
     field_map = {
-        "install": ("install_status", "install_at", "install_note", "install_by"),
-        "pickup": ("pickup_status", "pickup_at", "pickup_note", "pickup_by"),
+        "install": ("install_status", "install_at", "install_by"),
+        "pickup": ("pickup_status", "pickup_at", "pickup_by"),
     }
-    status_field, time_field, note_field, actor_field = field_map[phase]
+    status_field, time_field, actor_field = field_map[phase]
     if status == "pending":
         timestamp = ""
-        stored_note = ""
         stored_actor = ""
     else:
         timestamp = datetime.now().isoformat(timespec="seconds")
-        stored_note = note.strip()
         stored_actor = updated_by.strip()
+    if status_store_backend() == "postgres":
+        with postgres_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """
+                    INSERT INTO stop_status (run_id, stop_id)
+                    VALUES (%s, %s)
+                    ON CONFLICT(run_id, stop_id) DO NOTHING
+                    """,
+                    (run_id, stop_id),
+                )
+                cur.execute(
+                    f"""
+                    UPDATE stop_status
+                    SET {status_field} = %s,
+                        {time_field} = %s,
+                        {actor_field} = %s
+                    WHERE run_id = %s AND stop_id = %s
+                    """,
+                    (status, timestamp, stored_actor, run_id, stop_id),
+                )
+            conn.commit()
+        return
     with sqlite3.connect(STATUS_DB_PATH) as conn:
         conn.execute(
             """
@@ -260,11 +395,10 @@ def save_stop_status(run_id: str, stop_id: str, phase: str, status: str, note: s
             UPDATE stop_status
             SET {status_field} = ?,
                 {time_field} = ?,
-                {note_field} = ?,
                 {actor_field} = ?
             WHERE run_id = ? AND stop_id = ?
             """,
-            (status, timestamp, stored_note, stored_actor, run_id, stop_id),
+            (status, timestamp, stored_actor, run_id, stop_id),
         )
         conn.commit()
 
@@ -281,6 +415,31 @@ def save_stop_note(run_id: str, stop_id: str, phase: str, note: str) -> None:
     resolved_value = 0
     resolved_at = ""
     resolved_by = ""
+    if status_store_backend() == "postgres":
+        with postgres_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """
+                    INSERT INTO stop_status (run_id, stop_id)
+                    VALUES (%s, %s)
+                    ON CONFLICT(run_id, stop_id) DO NOTHING
+                    """,
+                    (run_id, stop_id),
+                )
+                cur.execute(
+                    f"""
+                    UPDATE stop_status
+                    SET {note_field} = %s,
+                        {time_field} = %s,
+                        {resolved_field} = %s,
+                        {resolved_at_field} = %s,
+                        {resolved_by_field} = %s
+                    WHERE run_id = %s AND stop_id = %s
+                    """,
+                    (note_text, timestamp, resolved_value, resolved_at, resolved_by, run_id, stop_id),
+                )
+            conn.commit()
+        return
     with sqlite3.connect(STATUS_DB_PATH) as conn:
         conn.execute(
             """
@@ -315,6 +474,29 @@ def save_issue_resolution(run_id: str, stop_id: str, phase: str, resolved: bool,
     timestamp = datetime.now().isoformat(timespec="seconds") if resolved else ""
     actor = resolved_by.strip() if resolved else ""
     resolved_flag = 1 if resolved else 0
+    if status_store_backend() == "postgres":
+        with postgres_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """
+                    INSERT INTO stop_status (run_id, stop_id)
+                    VALUES (%s, %s)
+                    ON CONFLICT(run_id, stop_id) DO NOTHING
+                    """,
+                    (run_id, stop_id),
+                )
+                cur.execute(
+                    f"""
+                    UPDATE stop_status
+                    SET {resolved_field} = CASE WHEN TRIM({note_field}) <> '' THEN %s ELSE 0 END,
+                        {resolved_at_field} = CASE WHEN TRIM({note_field}) <> '' THEN %s ELSE '' END,
+                        {resolved_by_field} = CASE WHEN TRIM({note_field}) <> '' THEN %s ELSE '' END
+                    WHERE run_id = %s AND stop_id = %s
+                    """,
+                    (resolved_flag, timestamp, actor, run_id, stop_id),
+                )
+            conn.commit()
+        return
     with sqlite3.connect(STATUS_DB_PATH) as conn:
         conn.execute(
             """
@@ -431,7 +613,7 @@ def summarize_stops(stops: list[dict]) -> dict:
     install_pending = total - install_recorded
     pickup_done = sum(
         1 for stop in stops
-        if stop["install_status"] == "installed" and stop["pickup_status"] == "picked_up"
+        if stop["pickup_status"] == "picked_up"
     )
     currently_out = sum(
         1 for stop in stops
@@ -444,8 +626,8 @@ def summarize_stops(stops: list[dict]) -> dict:
         "install_not_installed": install_not,
         "install_pending": install_pending,
         "pickup_picked_up": pickup_done,
-        "pickup_not_picked_up": currently_out,
-        "pickup_pending": currently_out,
+        "pickup_not_picked_up": total - pickup_done,
+        "pickup_pending": total - pickup_done,
     }
 
 
@@ -598,10 +780,7 @@ def zone_is_complete(zone: dict, phase: str) -> bool:
     if phase == "install":
         return all(stop.get("install_status") == "installed" for stop in stops)
     if phase == "pickup":
-        installed_stops = [stop for stop in stops if stop.get("install_status") == "installed"]
-        return bool(installed_stops) and all(
-            stop.get("pickup_status") == "picked_up" for stop in installed_stops
-        )
+        return all(stop.get("pickup_status") == "picked_up" for stop in stops)
     return False
 
 
@@ -783,8 +962,24 @@ class RouteRequestHandler(BaseHTTPRequestHandler):
         if parsed.path == "/api/qr":
             self._send_qr_svg(query.get("data", [""])[0])
             return
+        if parsed.path == "/healthz":
+            # Hosting probes must not repeatedly wake a sleeping free database.
+            # /api/health remains an explicit storage-readiness check.
+            self._send_json({"ok": True})
+            return
         if parsed.path == "/api/health":
-            self._send_json({"ok": True, "time": datetime.now().isoformat()})
+            backend = status_store_backend()
+            try:
+                if backend == "postgres":
+                    with postgres_connection() as conn:
+                        conn.execute("SELECT 1 FROM stop_status LIMIT 1")
+                else:
+                    with sqlite3.connect(STATUS_DB_PATH) as conn:
+                        conn.execute("SELECT 1 FROM stop_status LIMIT 1")
+            except Exception:
+                self._send_json({"ok": False, "storage": backend, "error": "Status storage unavailable"}, status_code=503)
+                return
+            self._send_json({"ok": True, "storage": backend, "time": datetime.now().isoformat()})
             return
         if parsed.path == "/":
             self._send_home_html()
@@ -852,9 +1047,9 @@ class RouteRequestHandler(BaseHTTPRequestHandler):
         self.send_header("Cache-Control", "no-store")
         self.end_headers()
 
-    def _send_json(self, payload: dict) -> None:
+    def _send_json(self, payload: dict, status_code: int = 200) -> None:
         body = json.dumps(payload).encode("utf-8")
-        self.send_response(200)
+        self.send_response(status_code)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
@@ -1461,12 +1656,13 @@ def main() -> None:
     os.chdir(APP_DIR)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+    ensure_status_db()
     server = ThreadingHTTPServer((HOST, PORT), RouteRequestHandler)
     local_ip = detect_local_ip()
     print(f"Mobile Route App running at http://127.0.0.1:{PORT}")
     print(f"Sharing URL on your local network: http://{local_ip}:{PORT}")
     print(f"Route outputs folder: {OUTPUTS_DIR}")
-    print(f"Admin password: {load_app_config().get('admin_password', '')}")
+    print(f"Status storage: {status_store_backend()}")
     server.serve_forever()
 
 

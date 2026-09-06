@@ -128,11 +128,11 @@ function installCount(zone) {
 }
 
 function pickedUpCount(zone) {
-  return (zone?.stops || []).filter((stop) => stop.install_status === "installed" && stop.pickup_status === "picked_up").length;
+  return (zone?.stops || []).filter((stop) => stop.pickup_status === "picked_up").length;
 }
 
 function currentlyOutCount(zone) {
-  return installCount(zone) - pickedUpCount(zone);
+  return (zone?.stops || []).filter((stop) => stop.install_status === "installed" && stop.pickup_status !== "picked_up").length;
 }
 
 function notInstalledCount(zone) {
@@ -287,6 +287,7 @@ function renderSessionToggle() {
     viewToggle.textContent = state.runnerShowAllStops ? "Show One Address" : "Show All Addresses";
     viewToggle.addEventListener("click", () => {
       state.runnerShowAllStops = !state.runnerShowAllStops;
+      renderSessionToggle();
       renderStops();
     });
     container.appendChild(viewToggle);
@@ -923,7 +924,7 @@ function renderStops() {
 
   if (state.currentPhase === "pickup") {
     kicker.textContent = "Pickup Checklist";
-    heading.textContent = "Mark each previously emplaced flag as picked up";
+    heading.textContent = "Mark each address after the flag is picked up";
   } else {
     kicker.textContent = "Emplace Checklist";
     heading.textContent = "Mark each address after the flag is emplaced";
